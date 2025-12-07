@@ -1,0 +1,64 @@
+[
+    {
+        "message_id": "3c6e2be8-29e0-4ddb-9f90-66b9b3152143",
+        "query": "ello",
+        "response": "I cannot answer from the provided text.",
+        "sources": [
+            {
+                "url": "/docs/chapter1\\subchapter1",
+                "page_title": "Core Concepts of ROS 2"
+            },
+            {
+                "url": "/docs/chapter2\\subchapter2",
+                "page_title": "Giving Robots Sight"
+            },
+            {
+                "url": "/docs/chapter3\\_index",
+                "page_title": "_Index"
+            }
+        ],
+        "rating": "good",
+        "context": null,
+        "timestamp": "2025-12-07T01:45:58.419857"
+    },
+    {
+        "message_id": "ebac1131-f2bc-4372-ad92-87660dd3f8b9",
+        "query": "tell me about this",
+        "response": "The provided text describes the book \"Physical AI & Humanoid Robotics.\"\n\nThis book focuses on bridging the gap between digital AI and physical embodiment, offering a roadmap for designing, simulating, and deploying intelligent humanoid robots that can perceive and interact with the physical world.\n\nThe curriculum of the book covers:\n*   Foundational robot control using ROS 2.\n*   Creating realistic simulations with Gazebo and Unity.\n*   Implementing advanced AI for perception and navigation with NVIDIA Isaac.\n*   The integration of Vision-Language-Action (VLA) models, which enable robots to understand and execute natural language commands.\n*   It culminates in a capstone project to build a truly autonomous humanoid.\n\nA powerful toolkit for accelerating the development of advanced Physical AI systems in humanoid robotics is highlighted, combining Isaac Sim for realistic simulation and synthetic data generation with Isaac ROS for high-performance, real-time perception.\n\nGazebo is also mentioned as one of the most widely used 3D robotics simulators, providing a robust physics engine for extensive testing and development in simulation before deploying AI algorithms to physical robots. It accurately models gravity, forces, joint dynamics, and collision detection, acting as a \"sandbox\" for safe design, training, and validation.",
+        "sources": [
+            {
+                "url": "/docs/intro",
+                "page_title": "Intro"
+            },
+            {
+                "url": "/docs/chapter3\\subchapter1",
+                "page_title": "Advanced Perception"
+            },
+            {
+                "url": "/docs/chapter2\\subchapter1",
+                "page_title": "Building the Sandbox"
+            }
+        ],
+        "rating": "good",
+        "context": "Physical AI & Humanoid Robotics",
+        "timestamp": "2025-12-07T01:48:14.984384"
+    },
+    {
+        "message_id": "temp-1765075194128-9wza1fk",
+        "query": "how are you doing",
+        "response": "I cannot answer from the provided text.",
+        "sources": [
+            {
+                "url": "/docs/chapter1\\subchapter1",
+                "page_title": "Core Concepts of ROS 2"
+            },
+            {
+                "url": "/docs/chapter1\\subchapter3",
+                "page_title": "The AI-to-Robot Bridge"
+            }
+        ],
+        "rating": "bad",
+        "context": null,
+        "timestamp": "2025-12-07T02:40:00.153620"
+    }
+]

@@ -1,0 +1,99 @@
+.heroBanner {
+  height: 100vh; /* Fit to screen height */
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroBanner .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.heroImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align buttons to the left */
+  margin-top: 1rem;
+}
+
+.bookAnimation {
+  width: 300px; /* Adjust as needed */
+  height: 400px; /* Adjust as needed */
+  animation: floatBook 3s ease-in-out infinite;
+}
+
+@keyframes floatBook {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner .container {
+    flex-direction: column;
+  }
+  .heroText, .heroImage {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+  .buttons {
+    justify-content: center;
+  }
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+/* Hero button animation */
+#hero-button {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  animation: hero-button-float 4s ease-in-out infinite; /* Subtle floating animation */
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4); /* Initial shadow */
+}
+
+#hero-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: all 0.4s ease-in-out;
+  z-index: -1;
+}
+
+#hero-button:hover {
+  transform: translateY(-3px); /* Lift button on hover */
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6); /* Stronger shadow on hover */
+}
+
+#hero-button:hover::before {
+  left: 100%; /* Swipe effect */
+}
+
+@keyframes hero-button-float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}

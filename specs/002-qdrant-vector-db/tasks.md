@@ -7,11 +7,11 @@
 
 **Purpose**: Create the basic project structure and environment for the Qdrant indexer.
 
-- [ ] T001 Create the `backend/` directory at the project root.
-- [ ] T002 Create the `backend/src/qdrant_indexer/` directory.
-- [ ] T003 Create `backend/src/qdrant_indexer/__init__.py`.
-- [ ] T004 Create `backend/requirements.txt` with initial dependencies: `qdrant-client`, `fastembed`, `markdown-it-py`, `python-dotenv`, `typer`.
-- [ ] T005 Create `backend/.env.example` file with placeholders for Qdrant and Gemini API keys/URLs.
+- [X] T001 Create the `backend/` directory at the project root.
+- [X] T002 Create the `backend/src/qdrant_indexer/` directory.
+- [X] T003 Create `backend/src/qdrant_indexer/__init__.py`.
+- [X] T004 Create `backend/requirements.txt` with initial dependencies: `qdrant-client`, `fastembed`, `markdown-it-py`, `python-dotenv`, `typer`.
+- [X] T005 Create `backend/.env.example` file with placeholders for Qdrant and Gemini API keys/URLs.
 
 ---
 
@@ -19,17 +19,17 @@
 
 **Purpose**: Implement the core services for interacting with Qdrant and generating embeddings.
 
-- [ ] T006 Implement `backend/src/qdrant_indexer/qdrant_service.py` with classes/functions for:
+- [X] T006 Implement `backend/src/qdrant_indexer/qdrant_service.py` with classes/functions for:
     - Initializing Qdrant client from environment variables.
     - Creating/managing Qdrant collections (ensure collection exists with correct vector size).
     - Upserting points (vectors + payload) to the collection.
     - Deleting points/collections.
-- [ ] T007 Implement `backend/src/qdrant_indexer/text_processor.py` with classes/functions for:
+- [X] T007 Implement `backend/src/qdrant_indexer/text_processor.py` with classes/functions for:
     - Reading Markdown files (`.md`, `.mdx`).
     - Robustly chunking text to preserve semantic context (e.g., based on headings, paragraph breaks).
     - Extracting metadata from Docusaurus file paths and frontmatter (chapter, subchapter, URL).
     - Generating unique `chunk_id` for each chunk.
-- [ ] T008 Implement embedding generation within `text_processor.py` (or a separate module) using `fastembed` for Google Gemini Embeddings.
+- [X] T008 Implement embedding generation within `text_processor.py` (or a separate module) using `fastembed` for Google Gemini Embeddings.
     - Handle API key loading.
     - Ensure correct embedding model is used.
 
@@ -42,14 +42,14 @@
 
 ### Implementation for User Story 1
 
-- [ ] T009 Implement `backend/src/qdrant_indexer/main.py` as the CLI entry point using `typer`.
-- [ ] T010 Add an `index` command to `main.py` that takes `docs-path` and `collection-name` as arguments.
-- [ ] T011 Orchestrate the `index` command to:
+- [X] T009 Implement `backend/src/qdrant_indexer/main.py` as the CLI entry point using `typer`.
+- [X] T010 Add an `index` command to `main.py` that takes `docs-path` and `collection-name` as arguments.
+- [X] T011 Orchestrate the `index` command to:
     - Iterate through Markdown files in `docs-path`.
     - Use `text_processor.py` to chunk content and extract metadata.
     - Generate embeddings for each chunk.
     - Use `qdrant_service.py` to create/update the Qdrant collection and upsert the points.
-- [ ] T012 Implement robust error handling and logging for the indexing process.
+- [X] T012 Implement robust error handling and logging for the indexing process.
 
 ---
 
@@ -60,8 +60,8 @@
 
 ### Implementation for User Story 2
 
-- [ ] T013 Ensure `qdrant_service.py`'s upsert logic correctly handles updates for existing `chunk_id`s (Qdrant points IDs).
-- [ ] T014 Implement logic in `main.py` to identify deleted files/chunks and remove them from Qdrant during re-indexing (optional, but good for cleanup).
+- [X] T013 Ensure `qdrant_service.py`'s upsert logic correctly handles updates for existing `chunk_id`s (Qdrant points IDs).
+- [X] T014 Implement logic in `main.py` to identify deleted files/chunks and remove them from Qdrant during re-indexing (optional, but good for cleanup).
 
 ---
 
@@ -69,11 +69,11 @@
 
 **Purpose**: Final testing, documentation, and minor improvements.
 
-- [ ] T015 Write unit tests for `qdrant_service.py` in `backend/tests/test_qdrant_service.py`.
-- [ ] T016 Write unit tests for `text_processor.py` in `backend/tests/test_text_processor.py`.
-- [ ] T017 Write integration tests for `main.py` (e.g., testing the full indexing flow) in `backend/tests/test_main.py`.
-- [ ] T018 Update `quickstart.md` with any final instructions or best practices discovered during implementation.
-- [ ] T019 Ensure all sensitive information (API keys) are loaded securely from environment variables.
+- [X] T015 Write unit tests for `qdrant_service.py` in `backend/tests/test_qdrant_service.py`.
+- [X] T016 Write unit tests for `text_processor.py` in `backend/tests/test_text_processor.py`.
+- [X] T017 Write integration tests for `main.py` (e.g., testing the full indexing flow) in `backend/tests/test_main.py`.
+- [X] T018 Update `quickstart.md` with any final instructions or best practices discovered during implementation.
+- [X] T019 Ensure all sensitive information (API keys) are loaded securely from environment variables.
 
 ---
 

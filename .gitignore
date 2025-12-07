@@ -1,0 +1,22 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Docusaurus
+.docusaurus/
+.cache-loader/
+build/
+
+# Environment
+.env*
+!/.env.example
+
+# IDEs
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

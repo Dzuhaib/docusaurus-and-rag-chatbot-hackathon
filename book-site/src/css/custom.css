@@ -1,0 +1,141 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #007BFF; /* Electric Blue */
+  --ifm-color-primary-dark: #0069d9;
+  --ifm-color-primary-darker: #0062cc;
+  --ifm-color-primary-darkest: #0056b3;
+  --ifm-color-primary-light: #2e8cff;
+  --ifm-color-primary-lighter: #4094ff;
+  --ifm-color-primary-lightest: #5ca1ff;
+
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* Default for light mode */
+  --ifm-background-color: #ffffff;
+  --ifm-font-color-base: #333333;
+  --ifm-heading-color: #222222;
+  --ifm-footer-background-color: #f7f7f7;
+  --ifm-navbar-background-color: #ffffff;
+}
+
+html[data-theme='dark'] {
+  --ifm-color-primary: #007BFF;
+  --ifm-background-color: #121212;
+  --ifm-font-color-base: #ffffff;
+  --ifm-heading-color: #ffffff;
+  --ifm-footer-background-color: #1c1c1c;
+  --ifm-navbar-background-color: #1c1c1c;
+}
+
+/* Chapter card styles */
+.chapterCard {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--ifm-border-radius);
+  overflow: hidden;
+  height: 100%; /* Ensure cards in a row have equal height */
+  position: relative;
+  background-clip: padding-box;
+  border: 2px solid transparent; /* Initial transparent border */
+  animation: border-animate 6s ease-in-out infinite; /* Animating border with 3 colors */
+}
+
+.chapterCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ifm-global-shadow-md); /* Stronger shadow on hover */
+}
+
+.chapterCard .card__header h3 {
+  color: var(--ifm-color-primary); /* Use primary color for chapter titles */
+}
+
+.chapterCard .card__body {
+  flex-grow: 1; /* Allow body to take available space */
+  padding: 1rem; /* Inner padding */
+}
+
+.chapterCard .card__footer {
+  margin-top: auto; /* Push footer to the bottom */
+}
+
+.chapterCard .button--primary {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: button-pulse 1.5s infinite alternate; /* Always animated button */
+}
+
+.chapterCard .button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  transform: scale(1.05); /* Button grows slightly on hover */
+}
+
+/* Ensure consistent card heights */
+.row.row--cols-3 > div {
+  display: flex;
+}
+
+@keyframes border-animate {
+  0% { border-color: rgba(0, 123, 255, 0.6); } /* Electric Blue 1 */
+  33% { border-color: rgba(60, 255, 0, 0.6); }  /* Green */
+  66% { border-color: rgba(255, 0, 150, 0.6); } /* Magenta */
+  100% { border-color: rgba(0, 123, 255, 0.6); }
+}
+
+@keyframes button-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4); }
+  70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
+
+/* Netlify Identity Widget specific styling */
+.netlify-identity-menu {
+  color: var(--ifm-navbar-link-color);
+  margin-right: 1rem;
+}
+
+.netlify-identity-button {
+  border-radius: var(--ifm-button-border-radius);
+  font-weight: var(--ifm-button-font-weight);
+  cursor: pointer;
+  padding: var(--ifm-button-padding-vertical) var(--ifm-button-padding-horizontal);
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border: 1px solid var(--ifm-color-primary-dark);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.netlify-identity-button:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-darker);
+}
+
+.restricted-content-message {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  border-radius: var(--ifm-border-radius);
+  box-shadow: var(--ifm-global-shadow-md);
+  margin-top: 2rem;
+}
+
+.restricted-content-message h1 {
+  color: var(--ifm-color-primary);
+}
+
+/* Custom styling for Chatkit Widget */
+.chatkit-widget-container {
+  border-radius: var(--ifm-border-radius);
+  box-shadow: var(--ifm-global-shadow-lg); /* Use a larger shadow for prominence */
+  background-color: var(--ifm-background-color); /* Use Docusaurus background color */
+  overflow: hidden; /* Ensures content stays within rounded borders */
+  display: flex;
+  flex-direction: column;
+}

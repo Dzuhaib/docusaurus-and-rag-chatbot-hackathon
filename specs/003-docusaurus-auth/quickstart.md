@@ -79,10 +79,11 @@
     *   **Option B: Direct Script in `docusaurus.config.js` (Less ideal for complex logic)**:
         Add the script tag directly to `headTags` in `docusaurus.config.js`.
 
-### 3. Implement Login/Logout UI
+### 3. Implement Login/Logout UI & Content Protection
 
 You'll typically create a custom Navbar item to display login/logout buttons or user status.
-*   Override `book-site/src/theme/Navbar/Content/index.js` (or a similar component) to add Netlify Identity buttons.
+*   Override `book-site/src/theme/Navbar/Content/index.js` (or a similar component) to add Netlify Identity buttons and display user status.
+*   The `AuthWrapper` component (`book-site/src/components/AuthWrapper.js`) will handle the client-side redirection to `/login` for unauthenticated access to restricted content.
 
 ### 4. Protect Content
 

@@ -1,0 +1,273 @@
+/* Main container for the floating chat window */
+.chatbotContainer {
+  position: fixed;
+  bottom: 90px; /* Position above the toggle button */
+  right: 20px;
+  width: 400px;
+  height: 60vh;
+  max-height: 700px;
+  z-index: 1000;
+  
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background-color: var(--ifm-background-color);
+
+  /* Animation */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating button to open the chat */
+.chatToggleButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1001;
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.chatToggleButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Header for the chat window */
+.chatbotHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: var(--ifm-background-surface-2); /* Slightly different background */
+}
+
+.chatbotHeader h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Close button in the header */
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ifm-font-color-base);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.closeButton:hover {
+  background-color: var(--ifm-hover-overlay);
+}
+
+
+/* Messages container styles (mostly unchanged) */
+.messagesContainer {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--ifm-background-color);
+}
+
+.welcomeMessage {
+  text-align: center;
+  color: var(--ifm-color-emphasis-700);
+  font-style: italic;
+  padding: 10px;
+}
+
+.message {
+  padding: 8px 12px;
+  border-radius: 18px;
+  max-width: 80%;
+  word-wrap: break-word;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+.userMessage {
+  align-self: flex-end;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.botMessage {
+  align-self: flex-start;
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+  border-bottom-left-radius: 4px;
+}
+
+.loadingMessage {
+  align-self: flex-start;
+  color: var(--ifm-color-emphasis-700);
+  font-style: italic;
+  padding: 8px 12px;
+}
+
+.sender {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+}
+
+/* Input container styles (mostly unchanged) */
+.inputContainer {
+  display: flex;
+  border-top: 1px solid #e0e0e0;
+  padding: 10px 15px;
+  background-color: var(--ifm-background-surface);
+}
+
+.inputField {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  margin-right: 10px;
+  background-color: var(--ifm-input-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest);
+}
+
+.sendButton {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.sendButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+.sendButton:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+/* New styles for the selected text context block */
+.contextInfo {
+  background-color: var(--ifm-color-emphasis-100);
+  border-left: 4px solid var(--ifm-color-primary);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.contextInfo p {
+  margin: 0 0 5px 0;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.contextInfo blockquote {
+  margin: 0;
+  padding: 0 0 0 10px;
+  border: none;
+  color: var(--ifm-color-emphasis-700);
+  font-style: italic;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+/* New styles for the sources container */
+.sourcesContainer {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.sourcesContainer strong {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.sourcesContainer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sourcesContainer li a {
+  font-size: 0.8rem;
+  background-color: var(--ifm-color-emphasis-200);
+  padding: 4px 8px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--ifm-color-primary);
+  transition: background-color 0.2s;
+}
+
+.sourcesContainer li a:hover {
+  background-color: var(--ifm-color-emphasis-300);
+  text-decoration: none;
+}
+
+/* New styles for the feedback buttons */
+.feedbackButtons {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end; /* Align to the right for bot messages */
+}
+
+.feedbackButtons button {
+  background: var(--ifm-color-emphasis-200);
+  border: 1px solid var(--ifm-color-emphasis-400);
+  border-radius: 5px;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.feedbackButtons button:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+.feedbackButtons button:active {
+  background-color: var(--ifm-color-primary-lightest);
+  border-color: var(--ifm-color-primary);
+}
+

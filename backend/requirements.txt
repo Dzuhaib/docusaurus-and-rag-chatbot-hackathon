@@ -1,0 +1,12 @@
+qdrant-client
+markdown-it-py
+python-dotenv
+typer
+google-generativeai
+fastapi
+uvicorn
+pydantic
+pydantic-settings
+openai
+pytest
+pytest-mock

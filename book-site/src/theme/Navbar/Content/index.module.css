@@ -1,0 +1,15 @@
+.authWidget {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem; /* Adjust spacing from other navbar items */
+}
+
+.authWidget .welcomeMessage {
+  margin-right: 0.5rem;
+  color: var(--ifm-navbar-link-color); /* Inherit navbar link color */
+}
+
+.authWidget button {
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
